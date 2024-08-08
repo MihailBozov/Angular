@@ -1,0 +1,41 @@
+<header>
+    <div class="mini-navbar-wrap">
+        <div class="logo-wrap">
+            <p class="logo"><span class="logo">SoftUni Forum</span></p>
+        </div>
+        <div *ngIf="!isLoggedIn" class="mini-navbar">
+            <ul>
+                <li>
+                    <a routerLink='login' routerLinkActive="router-link-active" >Login</a>
+                </li>
+                <li>
+                    <a routerLink='register' routerLinkActive="router-link-active" >Register</a>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="isLoggedIn" class="mini-navbar">
+            <ul>
+                <li>
+                    <a routerLink='profile' routerLinkActive="router-link-active" >{{firstName}}'s Profile</a>
+                </li>
+                <li (click)="logout()">
+                    <a >Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="/home" routerLinkActive="router-link-active">Home</a>
+            </li>
+            <li>
+                <a routerLink="/themes" routerLinkActive="router-link-active">Themes</a>
+            </li>
+            <li>
+                <a routerLink="/add-theme" routerLinkActive="router-link-active">New Theme</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
