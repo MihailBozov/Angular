@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 workshop-components/my-app/node_modules
+workshop-components/my-app/.angular
 
 # User-specific files
 *.rsuser
