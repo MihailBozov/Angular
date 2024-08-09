@@ -7,3 +7,10 @@
 <!-- Custom directives -->
  
 <div *appMyStructuralDirective="isShown"> Structural Directive </div>
+
+//<ng-template > Is mainly used with structural directives to define template logic that is conditionally rendered 
+
+<ng-template [appMyStructuralDirective]="isShown">
+    Structural Directive Usage 2
+</ng-template>
+
