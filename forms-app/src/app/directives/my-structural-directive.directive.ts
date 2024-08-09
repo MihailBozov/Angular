@@ -16,7 +16,7 @@ export class MyStructuralDirectiveDirective implements OnChanges {
     console.log('onChanges', this.appMyStructuralDirective);
     
     if (this.appMyStructuralDirective) {
-        this.viewContainerRef.createEmbeddedView(this.templateRef);
+        this.viewContainerRef.createEmbeddedView(this.templateRef, {myCustomValue: 'TEST TEST TEST'});
     } else {
       this.viewContainerRef.clear();
     }
