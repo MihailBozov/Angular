@@ -10,7 +10,7 @@ import { MyVoid } from '../types/my-void';
 export class HighlightDirective implements OnInit, OnDestroy{
   
   @HostListener('mouseover', ['$event']) mouseOverHandler(event: MouseEvent) {
-    console.log('mousseOver', event)
+    // console.log('mousseOver', event)
   }
   
   unsubFromEventsArray: MyVoid[] = [];
@@ -42,8 +42,7 @@ export class HighlightDirective implements OnInit, OnDestroy{
 
   
   ngOnDestroy(): void {
-    console.log('On destroy invocked');
-    console.log('My unsub array', this.unsubFromEventsArray);
+    // console.log('On destroy invocked');
     this.unsubFromEventsArray.forEach(eventFn => eventFn());
   }
 }
