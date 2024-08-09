@@ -12,7 +12,6 @@ export class MyRouterLinkDirective implements OnInit {
   constructor( private elementRef: ElementRef,private renderer: Renderer2 , private router: Router ) { }
   
   ngOnInit( ): void {
-      
     this.renderer.listen(this.elementRef.nativeElement, 'click', this.clickHandler.bind(this))
   }
   

@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { MyRouterLinkDirective } from './directives/my-router-link.directive';
+import { MyStructuralDirectiveDirective } from './directives/my-structural-directive.directive';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MyRouterLinkDirective } from './directives/my-router-link.directive';
     HomeComponent,
     NavComponent,
     MyRouterLinkDirective,
+    MyStructuralDirectiveDirective,
   ],
   imports: [
     BrowserModule,

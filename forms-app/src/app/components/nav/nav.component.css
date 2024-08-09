@@ -6,7 +6,7 @@
   justify-content: space-around;
   font-weight: 500;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(255, 192, 236);
+  background-color: rgb(124, 0, 87);
   list-style: none;
 }
 
@@ -17,6 +17,6 @@
 }
 
 .nav_bar li:hover {
-  background-color: rgb(123, 41, 99);
+  background-color: rgb(144, 50, 115);
   color: white;
 }
