@@ -10,9 +10,10 @@
 
  <!-- <ng-template > Is mainly used with structural directives to define template logic that is conditionally rendered  -->
 
-<ng-template [appMyStructuralDirective]="isShown" let-testVariable="myCustomValue">
+<ng-template [appMyStructuralDirective]="isShown" let-testVariable="myCustomValue" let-number="num">
     Structural Directive Usage 2
-    
-    <div>The value of my custom variable is  {{ testVariable }}</div>
+    <br><br>
+    <div>The value of my custom variable is: {{ testVariable }} </div>
+    <div>number: {{number}}</div>
 </ng-template>
 
