@@ -10,7 +10,7 @@
     
     <div class="form-group">
         <label for="password-login"></label>
-        <input ngModel type="password" name="password" placeholder="Password" required [appMaxCount]="4" #passwordInput="ngModel">
+        <input ngModel type="password" name="password" placeholder="Password" required [appMaxCount]="5" #passwordInput="ngModel">
     </div>
     
     <button>Login</button>
@@ -23,7 +23,7 @@
 </div>
 
 <div *ngIf="passwordInput.errors?.['appMaxCount']">
-    <p>Password is too short. It should be at least {{passwordInput.errors?.['appMaxCount']}} characters </p>
+    <p class="validation">The password is longer than {{passwordInput.errors?.['appMaxCount']}} characters </p>
     
 </div>
 

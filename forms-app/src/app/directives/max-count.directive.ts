@@ -17,7 +17,7 @@ export class MaxCountDirective implements Validator {
   
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
 
-    const length = control.value || 0;
+    const length = control.value.length || 0;
     
     console.log('--', control.value.length);
     
