@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { MyRouterLinkDirective } from './directives/my-router-link.directive';
 import { MyStructuralDirectiveDirective } from './directives/my-structural-directive.directive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaxCountDirective } from './directives/max-count.directive';
 
 
@@ -19,26 +19,27 @@ import { MaxCountDirective } from './directives/max-count.directive';
   //  Declare components, directives, and pipes that belong to this module.
   declarations: [
     HighlightDirective,
+    MaxCountDirective,
+    MyRouterLinkDirective,
+    MyStructuralDirectiveDirective,
     AppComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
     NavComponent,
-    MyRouterLinkDirective,
-    MyStructuralDirectiveDirective,
-   MaxCountDirective,
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, //Template Driven Approach
+    ReactiveFormsModule,
   ],
   
   // Register services for dependency injection.
   providers: [],
   
-  // Specifies the root component
+  // Specifies the root component (or components)
   bootstrap: [AppComponent]
 })
 export class AppModule { }

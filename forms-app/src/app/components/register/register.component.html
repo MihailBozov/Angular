@@ -1,1 +1,28 @@
-<p>register works!</p>
+<h1 class="title">Register</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="handleSubmit()" class="form-unit">
+    
+    <div class="form-group">
+        <input type="text" name="email" placeholder="Email" formControlName="email">
+    </div>
+    
+    <div class="form-group">
+        <input type="password" name="password" placeholder="password" formControlName="password">
+    </div>
+    
+    <button>Register</button>
+</form>
+
+<div *ngIf="registerForm">
+    
+    <!--* <div *ngIf="registerForm.get('the name of the field')?.errors?.['the name of the validator']" class="validation">Email is Requered</div> -->
+    
+    <div *ngIf="registerForm.get('email')?.errors?.['required']" class="validation">Email is Requered</div>
+    <div *ngIf="registerForm.get('email')?.errors?.['email']" class="validation">The email is not valid!</div>
+    
+    <div *ngIf="registerForm.get('password')?.errors?.['required']" class="validation">Password is required</div>
+    <div *ngIf="registerForm.get('password')?.errors?.['minlength']?.requiredLength" class="validation">The password is less than 4 </div>
+    
+</div>
+
+
