@@ -34,6 +34,14 @@
 </ng-template>
 
 <ng-template ngIf="true">
-    <ng-container *ngTemplateOutlet="dinamicTemplate"></ng-container>
-    
+    <ng-container *ngTemplateOutlet="dinamicTemplate"></ng-container>  
 </ng-template>
+
+
+<hr>
+<!-- <ng-container> serves to make logical grouping and it doesn't add additional node to the dom -->
+<ng-container>
+    <p>Some content</p>
+    <p>Some additional content</p>
+</ng-container>
+
