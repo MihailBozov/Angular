@@ -13,7 +13,7 @@ export class MyStructuralDirectiveDirective implements OnChanges {
 
   
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('onChanges', this.appMyStructuralDirective);
+    // console.log('onChanges', this.appMyStructuralDirective);
     
     if (this.appMyStructuralDirective) {
         this.viewContainerRef.createEmbeddedView(this.templateRef, 

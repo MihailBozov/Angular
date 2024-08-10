@@ -16,7 +16,7 @@ export class MyRouterLinkDirective implements OnInit {
   }
   
   clickHandler(event: MouseEvent) { 
-    console.log('click', this.appRouterLink, 'click');
+    // console.log('click', this.appRouterLink, 'click');
     this.router.navigate([this.appRouterLink])
   } 
 
