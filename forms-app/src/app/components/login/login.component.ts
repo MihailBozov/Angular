@@ -16,8 +16,13 @@ export class LoginComponent {
       return;
     }
     
-    if(this.form?.invalid) {
-      console.log('The forms is Invalid ->', this.form?.invalid)
+    if(this.form) {
+      console.log('The form is Valid ->', this.form?.valid)
+      console.log('The form is Invalid ->', this.form?.invalid)
+      console.log('The form is Pristine ->', this.form.pristine)
+      console.log('The form is Dirty ->', this.form.dirty)
+      console.log('The form is Touched ->', this.form.touched)
+      console.log('The form is Untouched ->', this.form.untouched)
     }
     
     const form = this.form;
