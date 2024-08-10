@@ -15,6 +15,8 @@ import { MaxCountDirective } from './directives/max-count.directive';
 
 
 @NgModule({
+  
+  //  Declare components, directives, and pipes that belong to this module.
   declarations: [
     HighlightDirective,
     AppComponent,
@@ -24,14 +26,19 @@ import { MaxCountDirective } from './directives/max-count.directive';
     NavComponent,
     MyRouterLinkDirective,
     MyStructuralDirectiveDirective,
-   MaxCountDirective 
+   MaxCountDirective,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, //Template Driven Approach
   ],
+  
+  // Register services for dependency injection.
   providers: [],
+  
+  // Specifies the root component
   bootstrap: [AppComponent]
 })
 export class AppModule { }
