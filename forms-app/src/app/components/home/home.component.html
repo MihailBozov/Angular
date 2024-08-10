@@ -25,3 +25,15 @@
 </ng-template>
 
 <button (click)="simpleClick(directiveRef)">Simple Click</button>
+
+<hr>
+
+<!-- <ng-template> is not shown and is not loaded unless the condition is true -->
+<ng-template #dinamicTemplate>
+    <p>This is dinamic content</p>
+</ng-template>
+
+<ng-template ngIf="true">
+    <ng-container *ngTemplateOutlet="dinamicTemplate"></ng-container>
+    
+</ng-template>
