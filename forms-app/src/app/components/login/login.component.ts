@@ -16,6 +16,10 @@ export class LoginComponent {
       return;
     }
     
+    if(this.form?.invalid) {
+      console.log('The forms is Invalid ->', this.form?.invalid)
+    }
+    
     const form = this.form;
     
     console.log(form.value)
@@ -24,6 +28,7 @@ export class LoginComponent {
     const { email, password } = form?.value;
     console.log(email)
     console.log(password)
+    console.log('Is the form invalid:', form.invalid)
     
     form.reset();
   }

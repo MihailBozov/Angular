@@ -5,13 +5,24 @@
 <form #loginForm="ngForm" (ngSubmit)="formSubmitHandler()" class="form-unit">
     <div class="form-group">
         <label for="email-login"></label>
-        <input ngModel type="text" id="email-login" name="email" placeholder="Email">
+        <input ngModel type="email" id="email-login" name="email" placeholder="Email" required  email #emailInput="ngModel">
     </div>
     
     <div class="form-group">
         <label for="password-login"></label>
-        <input ngModel type="password" name="password" placeholder="Password">
+        <input ngModel type="password" name="password" placeholder="Password" required >
     </div>
     
     <button>Login</button>
+    
 </form>
+
+<div *ngIf="emailInput.touched">
+    <div *ngIf="emailInput.errors?.['required']" class="validation">Email is Requered</div>
+    <div *ngIf="emailInput.errors?.['email']" class="validation">The email is not valid!</div>
+</div>
+
+<br><br>
+
+{{loginForm.value | json}}
+

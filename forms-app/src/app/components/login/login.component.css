@@ -25,3 +25,9 @@
     font-size: 1em;
     cursor: pointer;
 }
+
+.validation {
+    margin-left: 2em;
+    margin-top: 0.5em;
+    color: rgb(229, 0, 65);
+}
