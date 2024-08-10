@@ -8,7 +8,16 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
   
-  formSubmitHandler(form: NgForm): void {
+  @ViewChild('loginForm') form: NgForm | undefined;
+  
+  formSubmitHandler(): void {
+    
+    if(!this.form) {
+      return;
+    }
+    
+    const form = this.form;
+    
     console.log(form.value)
     
     // form.value returns an object, so we can use destructuring assigment to get the email and the password
