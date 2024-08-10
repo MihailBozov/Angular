@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { MyRouterLinkDirective } from './directives/my-router-link.directive';
 import { MyStructuralDirectiveDirective } from './directives/my-structural-directive.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MyStructuralDirectiveDirective } from './directives/my-structural-direc
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule, //Template Driven Approach
   ],
   providers: [],
   bootstrap: [AppComponent]
