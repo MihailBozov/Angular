@@ -1,19 +1,27 @@
 <h1 appHighlight>Hello Angular Directives</h1>
 <p appHighlight>Lorem ipsum, dolor sit amet?</p>
-<hr>
+<hr />
 
 <button (click)="toggle()">Toggle</button>
 
 <!-- Custom directives -->
- 
-<div *appMyStructuralDirective="isShown"> Structural Directive </div>
 
- <!-- <ng-template > Is mainly used with structural directives to define template logic that is conditionally rendered  -->
+<div *appMyStructuralDirective="isShown">Structural Directive</div>
 
-<ng-template [appMyStructuralDirective]="isShown" let-testVariable="myCustomValue" let-number="num">
-    Structural Directive Usage 2
-    <br><br>
-    <div>The value of my custom variable is: {{ testVariable }} </div>
-    <div>number: {{number}}</div>
+<!-- <ng-template > Is mainly used with structural directives to define template logic that is conditionally rendered  -->
+
+<ng-template
+  [appMyStructuralDirective]="isShown"
+  let-testVariable="myCustomValue"
+  let-number="num"
+  #directiveRef="appMyStructuralDirective">
+  
+  Structural Directive Usage 2
+  <br /><br />
+  <div>The value of my custom variable is: {{ testVariable }}</div>
+  <div>number: {{ number }}</div>
+  
+  
 </ng-template>
 
+<button (click)="simpleClick(directiveRef)">Simple Click</button>
