@@ -6,6 +6,9 @@
 workshop-components/my-app/node_modules
 workshop-components/my-app/.angular
 
+workshop-forms/my-app/node_modules
+workshop-forms/my-app/.angular
+
 # User-specific files
 *.rsuser
 *.suo
