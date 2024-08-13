@@ -16,7 +16,7 @@
                     #inputEmail="ngModel" 
                     required 
                     maxlength="(6)"
-                    [class]=" !!inputEmail.errors?.['required'] && inputEmail.to ? 'input-error' : '' ">
+                    [class]=" !!inputEmail.errors?.['required'] && inputEmail.touched ? 'input-error' : '' ">
             </p>
             
             <ng-container *ngIf="inputEmail.touched">
