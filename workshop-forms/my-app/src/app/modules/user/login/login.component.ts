@@ -9,10 +9,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-   
+
+isEmailValid: boolean = false;
+
   constructor(private userService: UserService, private router: Router) {}
+
+  validate(form: NgForm): boolean {
+    this.isEmailValid = !!form.controls['inputEmail'].errors?.['required'];
+    console.log('The state of my form is:', this.isEmailValid);
+    return this.isEmailValid;
+  }
   
   login(form: NgForm): void {
+    
     if(form.invalid) {
       return;
     }
