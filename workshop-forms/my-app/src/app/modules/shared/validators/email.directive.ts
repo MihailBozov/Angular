@@ -24,8 +24,6 @@ validator: ValidatorFn = () => null;
 
 
     if(currentValue?.length) {
-
-      console.log('currentValue: ', currentValue);
       this.validator = emailValidator(currentValue)
     }
   }

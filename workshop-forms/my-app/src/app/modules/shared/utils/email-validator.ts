@@ -6,7 +6,10 @@ export function emailValidator(domains: string[]): ValidatorFn {
     const regExp = new RegExp(`^[A-Za-z0-9]+@gmail\.(${domainString})$`)
 
     return (control: AbstractControl) => {
-        const isEmailValid = control.value === '' || regExp.test(control.value);
-        return isEmailValid ? { emailValidator: true } : null;
+
+        const isEmailValid = regExp.test(control.value);
+
+        // Returns null if it is valid, otherwise returns an error object
+        return isEmailValid ? null : { emailValidator: true };
     }
   }
