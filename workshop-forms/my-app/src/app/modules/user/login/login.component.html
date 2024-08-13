@@ -16,16 +16,17 @@
                     #inputEmail="ngModel" 
                     required 
                     maxlength="(6)"
-                    [class]=" !!inputEmail.errors?.['required'] && inputEmail.touched ? 'input-error' : '' ">
+                    [appEmail]="['bg', 'com']"
+                    [class]=" !!inputEmail.errors && inputEmail.touched ? 'input-error' : '' ">
             </p>
             
             <ng-container *ngIf="inputEmail.touched">
                 <p *ngIf="inputEmail.errors?.['required']" class="error">
                     Email is required!
                 </p>
-                <!-- <p class="error">
+                <p class="error" *ngIf="inputEmail.errors?.['emailValidator']">
                     Email is not valid!
-                </p> -->
+                </p>
                 
             </ng-container>
             

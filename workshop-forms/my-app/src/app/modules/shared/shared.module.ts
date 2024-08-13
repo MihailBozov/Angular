@@ -4,6 +4,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { RouterModule } from '@angular/router';
 import { EmailDirective } from './validators/email.directive';
+import { emailValidator } from './utils/email-validator';
 
 
 
@@ -11,7 +12,7 @@ import { EmailDirective } from './validators/email.directive';
   declarations: [
     LoaderComponent,
     WelcomeComponent,
-    EmailDirective
+    EmailDirective,
   ],
   imports: [
     CommonModule,
@@ -19,7 +20,8 @@ import { EmailDirective } from './validators/email.directive';
   ],
   exports: [
     LoaderComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    EmailDirective
   ]
 })
 export class SharedModule { }

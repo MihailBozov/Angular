@@ -1,5 +1,6 @@
-import { Directive } from '@angular/core';
-import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
+import { emailValidator } from '../utils/email-validator';
 
 @Directive({
   selector: '[appEmail]',
@@ -11,13 +12,28 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@an
     }
   ]
 })
-export class EmailDirective implements Validator{
+export class EmailDirective implements Validator, OnChanges{
+
+@Input() appEmail: string[] = [];
+validator: ValidatorFn = () => null;
 
   constructor() { }
 
-  validate(control: AbstractControl): ValidationErrors | null {
-    
-    return null;
+  ngOnChanges(changes: SimpleChanges): void {
+    const {currentValue} = changes['appEmail'];
+
+
+    if(currentValue?.length) {
+
+      console.log('currentValue: ', currentValue);
+      this.validator = emailValidator(currentValue)
+    }
   }
+
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    return this.validator(control);
+  }
+
 
 }
