@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { EMAIL_DOMAINS } from 'src/app/constants';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,12 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent {
 
 isEmailValid: boolean = false;
+domains: string[] = EMAIL_DOMAINS;
 
   constructor(private userService: UserService, private router: Router) {}
 
   validate(form: NgForm): boolean {
     this.isEmailValid = !!form.controls['inputEmail'].errors?.['required'];
-    console.log('The state of my form is:', this.isEmailValid);
     return this.isEmailValid;
   }
   
@@ -25,8 +26,6 @@ isEmailValid: boolean = false;
     if(form.invalid) {
       return;
     }
-    
-    console.log('My form is',  form.value)
     
     this.userService.login();
     this.router.navigate(['home']);

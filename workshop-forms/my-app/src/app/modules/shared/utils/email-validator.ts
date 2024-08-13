@@ -7,7 +7,7 @@ export function emailValidator(domains: string[]): ValidatorFn {
 
     return (control: AbstractControl) => {
 
-        const isEmailValid = regExp.test(control.value);
+        const isEmailValid = control.value === '' || regExp.test(control.value);
 
         // Returns null if it is valid, otherwise returns an error object
         return isEmailValid ? null : { emailValidator: true };

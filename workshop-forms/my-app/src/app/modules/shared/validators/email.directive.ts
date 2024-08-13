@@ -18,7 +18,6 @@ export class EmailDirective implements Validator{
 validator: ValidatorFn = () => null;
 
   validate(control: AbstractControl): ValidationErrors | null {
-    console.log('control: ', control.value);
 
     if(this.appEmail?.length) {
       this.validator = emailValidator(this.appEmail)
