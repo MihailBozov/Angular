@@ -68,7 +68,6 @@
             </ng-container>
 
             <ng-container formGroupName="passGroup">
-                
                 <!-- password -->
                 <p class="field field-icon">
                     <label for="password"><span><i class="fas fa-lock"></i></span></label>
@@ -77,11 +76,11 @@
                            id="password" 
                            placeholder="******"
                            formControlName="password"
-                           [ngClass]="!!form.get('password')?.touched && form.get('password')?.errors ? 'input-error' : ''">
+                           [ngClass]="!!form.get('passGroup.password')?.touched && form.get('passGroup.password')?.errors ? 'input-error' : ''">
                 </p>
 
-                <ng-container *ngIf="form.get('password')?.touched">
-                    <p class="error" *ngIf="form.get('password')?.errors?.['required']">
+                <ng-container *ngIf="form.get('passGroup.password')?.touched">
+                    <p class="error" *ngIf="form.get('passGroup.password')?.errors?.['required']">
                         Password is required!
                     </p>
                 </ng-container>
@@ -97,11 +96,11 @@
                            id="rePassword" 
                            placeholder="******"
                            formControlName="rePassword"
-                           [ngClass]="!!form.get('rePassword')?.touched && form.get('rePassword')?.errors ? 'input-error' : ''">
+                           [ngClass]="!!form.get('passGroup.rePassword')?.touched && form.get('passGroup.rePassword')?.errors ? 'input-error' : ''">
                 </p>
 
-                <ng-container *ngIf="form.get('rePassword')?.touched">
-                    <p class="error" *ngIf="form.get('rePassword')?.errors?.['required']">
+                <ng-container *ngIf="form.get('passGroup.rePassword')?.touched">
+                    <p class="error" *ngIf="form.get('passGroup.rePassword')?.errors?.['required']">
                         Password is required!
                     </p>
                 </ng-container>

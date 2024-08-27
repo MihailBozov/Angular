@@ -8,10 +8,11 @@ export function matchPasswordsValidator(passwordControlName: string, rePasswordC
         const passFirstControl = control.get(passwordControlName);
         const passSecondControl = control.get(rePasswordControlName);
 
-        console.log({passFirst: passFirstControl, passSecond: passSecondControl });
 
-        const areMatching = passFirstControl?.value === passSecondControl?.value
         
+        const areMatching = passFirstControl?.value == passSecondControl?.value
+        
+        console.log('areMatching', areMatching);
 
         return areMatching ? null : { matchPasswordsValidator: true };
 
