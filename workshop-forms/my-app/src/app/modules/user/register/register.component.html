@@ -7,12 +7,12 @@
             <!-- username -->
             <p class="field field-icon">
                 <label for="username"><span><i class="fas fa-user"></i></span></label>
-                <input class="input-error" 
-                       type="text" 
+                <input type="text" 
                        name="username" 
                        id="username" 
                        placeholder="Johny"
-                       formControlName="username">
+                       formControlName="username"
+                       [ngClass]="form.get('username')?.errors && !!form.get('username')?.touched ? 'input-error' : ''">
             </p>
 
             <ng-container *ngIf="form.get('username')?.touched && form.get('username')?.errors">
@@ -31,7 +31,8 @@
                        name="email" 
                        id="email" 
                        placeholder="john.doe@gmail.com"
-                       formControlName="email">
+                       formControlName="email"
+                       [ngClass]=" !!form.get('email')?.errors && form.get('email')?.touched ? 'input-error' : '' ">
             </p>
             
             <ng-container *ngIf=" form.get('email')?.touched && form.get('email')?.errors">
@@ -56,8 +57,15 @@
                        name="tel" 
                        id="tel" 
                        placeholder="885 888 888"
-                       formControlName="tel">
+                       formControlName="tel"
+                       [ngClass]="!!form.get('tel')?.touched && form.get('tel')?.errors ? 'input-error' : ''">
             </p>
+
+            <ng-container *ngIf="form.get('tel')?.touched">
+                <p  class="error" *ngIf="form.get('tel')?.errors?.['required']"> The number is required</p>
+                <p  class="error" *ngIf="form.get('tel')?.errors?.['minlength']"> The length of the number should be 9 characters</p>
+                <p  class="error" *ngIf="form.get('tel')?.errors?.['maxlength']"> The length of the number should be 9 characters</p>
+            </ng-container>
 
             <ng-container formGroupName="passGroup">
                 
@@ -68,12 +76,16 @@
                            name="password" 
                            id="password" 
                            placeholder="******"
-                           formControlName="password">
+                           formControlName="password"
+                           [ngClass]="!!form.get('password')?.touched && form.get('password')?.errors ? 'input-error' : ''">
                 </p>
+
+                <ng-container *ngIf="form.get('password')?.touched">
+                    <p class="error" *ngIf="form.get('password')?.errors?.['required']">
+                        Password is required!
+                    </p>
+                </ng-container>
                 <!-- <p class="error">
-                    Password is required!
-                </p>
-                <p class="error">
                     Password must be at least 4 characters!
                 </p> -->
     
@@ -84,8 +96,15 @@
                            name="rePassword" 
                            id="rePassword" 
                            placeholder="******"
-                           formControlName="rePassword">
+                           formControlName="rePassword"
+                           [ngClass]="!!form.get('rePassword')?.touched && form.get('rePassword')?.errors ? 'input-error' : ''">
                 </p>
+
+                <ng-container *ngIf="form.get('rePassword')?.touched">
+                    <p class="error" *ngIf="form.get('rePassword')?.errors?.['required']">
+                        Password is required!
+                    </p>
+                </ng-container>
                 <!-- <p class="error">Repeat Password does not match password!</p> -->
 
             </ng-container>

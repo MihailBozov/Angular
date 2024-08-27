@@ -8,6 +8,7 @@ import { emailValidator } from './utils/email-validator';
 
 
 
+
 @NgModule({
   declarations: [
     LoaderComponent,
@@ -21,7 +22,7 @@ import { emailValidator } from './utils/email-validator';
   exports: [
     LoaderComponent,
     WelcomeComponent,
-    EmailDirective
+    EmailDirective,
   ]
 })
 export class SharedModule { }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/utils/email-validator';
 import { EMAIL_DOMAINS } from 'src/app/constants';
+import { matchPasswordsValidator } from '../../shared/utils/match-passwords-validator';
 
 @Component({
   selector: 'app-register',
@@ -15,11 +16,15 @@ export class RegisterComponent {
     {
       username: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
-      tel: [''],
+      tel: ['', [Validators.required, Validators.pattern('^[0-9]{9}$'), Validators.minLength(9), Validators.maxLength(9)]],
+
       passGroup: this.formBuilder.group(
         {
           password: ['', [Validators.required]],
           rePassword: ['', [Validators.required]]
+        }, 
+        { 
+          validators: [matchPasswordsValidator('password', 'rePassword')] 
         }
       )
     }
