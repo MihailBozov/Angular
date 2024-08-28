@@ -53,7 +53,7 @@
                 </p>
             </ng-container>
 
-            <button>Login</button>
+            <button [disabled]="form.invalid" [style]="{ backgroundColor: form.invalid ? '#bbb' : ''}">Login</button>
 
             <p class="text-center">
                 Have an account?
