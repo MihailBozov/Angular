@@ -7,6 +7,8 @@ import { ThemeRoutingModule } from './theme-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PostItemComponent } from './post-item/post-item.component';
 import { MainComponent } from './main/main.component';
+import { AddThemeComponent } from './add-theme/add-theme.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,10 +18,11 @@ import { MainComponent } from './main/main.component';
     ThemesListComponent,
     PostsListComponent,
     PostItemComponent,
-    MainComponent
+    MainComponent,
+    AddThemeComponent 
   ],
   imports: [
-    CommonModule, ThemeRoutingModule, SharedModule
+    CommonModule, ThemeRoutingModule, SharedModule, FormsModule
   ],
   exports: [MainComponent]
 })

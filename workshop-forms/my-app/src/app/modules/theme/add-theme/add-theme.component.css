@@ -76,10 +76,13 @@ button+button {
 p.error {
     text-align: left;
     border-radius: 0.3em;
-    color: red;
+    color: rgb(255, 157, 0);
     padding-top: 0;
 }
 
 .input-error {
     border-left-color: red;
+}
+.invalid {
+    border: 2px solid red;
 }
