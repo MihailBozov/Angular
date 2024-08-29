@@ -43,6 +43,13 @@ export class ProfileComponent {
     this.showEditMode = !this.showEditMode;
   }
 
+  onCancel(event: Event):void { 
+    event.preventDefault();
+    console.log('Cancel invoked');
+    this.onToggle();
+    
+  }
+
    exactLengthValidator(requiredLength: number) : ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const isValid = control.value?.length === requiredLength;

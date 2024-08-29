@@ -73,8 +73,15 @@
                     <p class="error" *ngIf="this.form.get('tel')?.errors?.['exactLength']">The phone number must be comprised of {{form.get('tel')?.errors?.['exactLength'].requiredLength}} characters</p>
                 </ng-container>
 
-                <button class="red-button">Cancel</button>
-                <button class="green-button">Save</button>
+                <button class="red-button"
+                        (click)="onCancel($event)">
+                        Cancel
+                </button>
+                <button class="green-button"
+                        [disabled]="form.invalid"
+                        [style]="{ backgroundColor: form.invalid ? '#080' : ''}">
+                        Save
+                </button>
             </form>
         </ng-container>
     </div>
