@@ -70,3 +70,12 @@
 .green-button {
     background-color: green;
 }
+
+.invalid {
+    border: 2px solid red;
+    border-radius: 3px;
+}
+
+.error {
+    color: red;
+}

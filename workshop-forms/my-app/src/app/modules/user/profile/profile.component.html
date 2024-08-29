@@ -5,38 +5,74 @@
         <ng-container *ngIf="!showEditMode">
             <div class="flex">
             <p>Username: </p>
-            <p>Johny</p>
+            <p>{{this.profileDetails.username}}</p>
             </div>
             <div class="flex">
             <p>Email: </p>
-            <p>john.doe&#64;gmail.com</p>
+            <p>{{this.profileDetails.email}}</p>
             </div>
             <div class="flex">
             <p>Phone: </p>
-            <p>+359 885 888 888</p>
+            <p>{{this.profileDetails.tel}}</p>
             </div>
             <button class="edit-button" (click)="onToggle()">Edit</button>
         </ng-container>
 
         <ng-container *ngIf="showEditMode">
-            <form action="">
+            <form [formGroup]="form" (ngSubmit)="saveProfileHandle()">
                 <div class="flex">
                     <p>Username: </p>
-                    <input type="text" name="username" id="username" [value]="profileDetails.username">
-                </div>
+                    <input type="text" 
+                           name="username" 
+                           id="username" 
+                           [value]="profileDetails.username"
+                           formControlName="username"
+                           [class.invalid]="this.form.get('username')?.invalid && (this.form.get('username')?.touched || this.form.get('username')?.dirty)">
+                        </div>
+                        <ng-container *ngIf="this.form.get('username')?.touched">
+                            <p class="error" *ngIf="this.form.get('username')?.errors?.['required']">The username is required</p>
+                            <p class="error" *ngIf="this.form.get('username')?.errors?.['minlength']">The Username length must me at least {{this.form.get('username')?.errors?.['minlength'].requiredLength}}</p>
+                        </ng-container>
+
+
                 <div class="flex">
                     <p>Email: </p>
-                    <input type="email" name="email" id="email" [value]="profileDetails.email">
+                    <input type="email" 
+                           name="email" 
+                           id="email" 
+                           [value]="profileDetails.email"
+                           formControlName="email"
+                           [class.invalid]="this.form.get('email')?.invalid && (this.form.get('email')?.touched || this.form.get('email')?.dirty)">
                 </div>
+
+                <ng-container *ngIf="this.form.get('email')?.touched">
+                    <p class="error" *ngIf="this.form.get('email')?.errors?.['required']">The email is required</p>
+                    <p class="error" *ngIf="this.form.get('email')?.errors?.['minlength']">The email length must me at least {{this.form.get('username')?.errors?.['minlength'].requiredLength}}</p>
+                </ng-container>
+
                 <div class="flex">
                     <p>Phone: </p>
                     <div>
-                        <select name="select-tel" id="select-tel" class="tel">
-                            <option value="00359">+359</option>
+                        <select name="select-tel" 
+                                id="select-tel" 
+                                class="tel">
+                            <option value="+359">+359</option>
                         </select>
-                        <input type="text" name="tel" id="tel" [value]="profileDetails.tel">
+                        <input type="text" 
+                               name="tel" 
+                               id="tel" 
+                               [value]="profileDetails.tel"
+                               formControlName="tel"
+                               [class.invalid]="this.form.get('tel')?.invalid && (this.form.get('tel')?.touched || this.form.get('tel')?.dirty)">
                     </div>
                 </div>
+
+                <ng-container *ngIf="this.form.get('tel')?.touched">
+                    <p class="error" *ngIf="this.form.get('tel')?.errors?.['required']">The phone number is required</p>
+                    <p class="error" *ngIf="this.form.get('tel')?.errors?.['pattern']">The phone number must contain only digits</p>
+                    <p class="error" *ngIf="this.form.get('tel')?.errors?.['exactLength']">The phone number must be comprised of {{form.get('tel')?.errors?.['exactLength'].requiredLength}} characters</p>
+                </ng-container>
+
                 <button class="red-button">Cancel</button>
                 <button class="green-button">Save</button>
             </form>
