@@ -17,4 +17,9 @@ export class AppComponent {
   sum(acc: number, curr: number): number {
     return acc + curr;
   }
+
+  addProperty(): void {
+    (this.user as any).test = 'test123'
+    this.user.list = [...this.user.list, 100];
+  }
 }
