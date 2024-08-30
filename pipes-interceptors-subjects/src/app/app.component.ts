@@ -22,7 +22,6 @@ export class AppComponent {
   }
 
   addProperty(): void {
-    (this.user as any).test = 'test123'
     this.user.list = [...this.user.list, 100];
   }
 
