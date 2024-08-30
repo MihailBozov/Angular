@@ -29,7 +29,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       tap( req => {
         if (req instanceof HttpRequest) {
-          console.log(req)
+          // console.log(req)
         }
       }),
       catchError(err => {
