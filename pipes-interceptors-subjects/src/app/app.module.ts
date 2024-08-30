@@ -6,19 +6,22 @@ import { AppComponent } from './app.component';
 import { ReducePipe } from './pipes/reduce.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { SumPipe } from './pipes/sum.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { appHttpInterceptorProvider } from './interceptors/app-http.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReducePipe,
     TruncatePipe,
-    SumPipe
+    SumPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [appHttpInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
