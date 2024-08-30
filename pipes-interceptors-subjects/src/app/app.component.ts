@@ -14,6 +14,8 @@ export class AppComponent {
     list: [1,2,3,4,5,6,7,8,9,]
   }
 
+  nums: number[] = [100,200,300];
+
 
   sum(acc: number, curr: number): number {
     return acc + curr;

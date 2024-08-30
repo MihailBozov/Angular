@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReducePipe } from './pipes/reduce.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { SumPipe } from './pipes/sum.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReducePipe,
-    TruncatePipe
+    TruncatePipe,
+    SumPipe
   ],
   imports: [
     BrowserModule,
