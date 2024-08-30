@@ -24,7 +24,17 @@
 
 <div>The total sum is: {{ nums | sumPipe : sum : 1000 }} </div>
 
+
 <br>
 <hr>
-<router-outlet/>
 
+<div>
+  <a routerLink="/">Home</a>
+</div>
+<div>
+  <a routerLink="/lazy">lazy</a>
+</div>
+
+<br>
+<hr>
+<router-outlet />

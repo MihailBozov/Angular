@@ -23,7 +23,6 @@ import { LazyModule } from './modules/lazy/lazy.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LazyModule
   ],
   providers: [appHttpInterceptorProvider],
   bootstrap: [AppComponent]
