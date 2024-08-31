@@ -1,4 +1,4 @@
-import { BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
@@ -75,23 +75,35 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 
 // A ReplaySubject can store a specific number of previously emitted values (called the "buffer size") and replay them to any new subscribers.
-const replaySubject$$ = new ReplaySubject(5);
+// const replaySubject$$ = new ReplaySubject(5);
 
 
-replaySubject$$.subscribe(value => console.log('rSubject 1:', value))
-replaySubject$$.next(100);
-replaySubject$$.next(200);
-replaySubject$$.next(300);
-replaySubject$$.next(400);
-replaySubject$$.next(500);
-replaySubject$$.next(600);
-replaySubject$$.next(700);
-replaySubject$$.next(800);
-replaySubject$$.next(900);
-replaySubject$$.subscribe(value => console.log('rSubject 2:', value));
-replaySubject$$.subscribe(value => console.log('rSubject 3:', value));
+// replaySubject$$.subscribe(value => console.log('rSubject 1:', value))
+// replaySubject$$.next(100);
+// replaySubject$$.next(200);
+// replaySubject$$.next(300);
+// replaySubject$$.next(400);
+// replaySubject$$.next(500);
+// replaySubject$$.next(600);
+// replaySubject$$.next(700);
+// replaySubject$$.next(800);
+// replaySubject$$.next(900);
+// replaySubject$$.subscribe(value => console.log('rSubject 2:', value));
+// replaySubject$$.subscribe(value => console.log('rSubject 3:', value));
 
+// An AsyncSubject only emits the last value it receives to its subscribers, and only when the subject completes.
+// No matter where the subscribe happens, all the subscribers will receive the value emited before the complete() is called
+const asyncSubject$$ = new AsyncSubject();
+asyncSubject$$.next(100);
 
+asyncSubject$$.subscribe(value => console.log('aSubject 1:', value));
+asyncSubject$$.next(200);
+asyncSubject$$.next(300);
 
+asyncSubject$$.subscribe(value => console.log('aSubject 2:', value));
+asyncSubject$$.next(400);
+asyncSubject$$.next(500);
 
+asyncSubject$$.subscribe(value => console.log('aSubject 3:', value));
+asyncSubject$$.complete();
 
