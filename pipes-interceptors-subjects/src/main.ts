@@ -1,4 +1,4 @@
-import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
@@ -60,16 +60,38 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 
 // the Behaivor Subject always holds one value, and when we subscribe we get that value
-const behaivorSubject$$ = new BehaviorSubject(100);
+// const behaivorSubject$$ = new BehaviorSubject(100);
 
-behaivorSubject$$.subscribe(value => console.log('Subscriber 1:', value));
+// behaivorSubject$$.subscribe(value => console.log('Subscriber 1:', value));
 
-behaivorSubject$$.next(200);
-behaivorSubject$$.next(300);
+// behaivorSubject$$.next(200);
+// behaivorSubject$$.next(300);
 
-behaivorSubject$$.subscribe(value => console.log('Subscriber 2:', value))
-behaivorSubject$$.next(400);
-behaivorSubject$$.next(500);
-behaivorSubject$$.subscribe(value => console.log('Subscriber 3:', value))
-behaivorSubject$$.next(600);
+// behaivorSubject$$.subscribe(value => console.log('Subscriber 2:', value))
+// behaivorSubject$$.next(400);
+// behaivorSubject$$.next(500);
+// behaivorSubject$$.subscribe(value => console.log('Subscriber 3:', value))
+// behaivorSubject$$.next(600);
+
+
+// A ReplaySubject can store a specific number of previously emitted values (called the "buffer size") and replay them to any new subscribers.
+const replaySubject$$ = new ReplaySubject(5);
+
+
+replaySubject$$.subscribe(value => console.log('rSubject 1:', value))
+replaySubject$$.next(100);
+replaySubject$$.next(200);
+replaySubject$$.next(300);
+replaySubject$$.next(400);
+replaySubject$$.next(500);
+replaySubject$$.next(600);
+replaySubject$$.next(700);
+replaySubject$$.next(800);
+replaySubject$$.next(900);
+replaySubject$$.subscribe(value => console.log('rSubject 2:', value));
+replaySubject$$.subscribe(value => console.log('rSubject 3:', value));
+
+
+
+
 
