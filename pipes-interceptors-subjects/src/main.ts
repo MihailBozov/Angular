@@ -1,4 +1,4 @@
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
@@ -38,8 +38,35 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   // })
 
   observable$.subscribe({
-    next: subscriber => console.log(subscriber),
+    next: value => console.log(value),
     error: error => console.log('Error: ', error.message),
     complete: () => console.log('Completed')
 
   })
+
+
+  const subject$$ = new Subject();
+  subject$$.subscribe(value => console.log('Sub 1:', value));
+  subject$$.next(100)
+  subject$$.next(200)
+  subject$$.next(300)
+  subject$$.subscribe(value => console.log('Sub 2:', value))
+  subject$$.next(400)
+  subject$$.next(500)
+  subject$$.subscribe(value => console.log('Sub 3:', value));
+  subject$$.next(600);
+  subject$$.next(700);
+
+  // Sub 1: 100
+  // Sub 1: 200
+  // Sub 1: 300
+  // Sub 1: 400
+  // Sub 2: 400
+  // Sub 1: 500
+  // Sub 2: 500
+  // Sub 1: 600
+  // Sub 2: 600
+  // Sub 3: 600
+  // Sub 1: 700
+  // Sub 2: 700
+  // Sub 3: 700
