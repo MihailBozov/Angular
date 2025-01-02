@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { UserModule } from './modules/user/user.module';
 import { ThemeModule } from './modules/theme/theme.module';
 import { ErrorComponent } from './components/error/error.component';
+import { appInterceptorProvider } from './app.interceptor';
 
 
 
@@ -27,7 +28,7 @@ import { ErrorComponent } from './components/error/error.component';
     ThemeModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

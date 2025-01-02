@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { emailValidator } from '../../shared/utils/email-validator';
 import { EMAIL_DOMAINS } from 'src/app/constants';
 import { matchPasswordsValidator } from '../../shared/utils/match-passwords-validator';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -30,13 +32,19 @@ export class RegisterComponent {
     }
   )
 
-  constructor (private formBuilder: FormBuilder) {}
+  constructor (private formBuilder: FormBuilder, private userService: UserService, private router: Router) {}
 
   register(): void {
       if(this.form.invalid) {
         return;
       }
-
+      
+      const {username, tel, email, passGroup: {password, rePassword} = {} } = this.form.value;
+      
+      this.userService.register(username!, tel!, email!, password!, rePassword!).subscribe( () => {
+        this.router.navigate(['themes'])
+      });
+      
       console.log(this.form.value);
   }
 }

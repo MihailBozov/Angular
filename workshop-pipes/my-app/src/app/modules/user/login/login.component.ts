@@ -11,23 +11,26 @@ import { EMAIL_DOMAINS } from 'src/app/constants';
 })
 export class LoginComponent {
 
-isEmailValid: boolean = false;
-domains: string[] = EMAIL_DOMAINS;
+  isEmailValid: boolean = false;
+  domains: string[] = EMAIL_DOMAINS;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   validate(form: NgForm): boolean {
     this.isEmailValid = !!form.controls['inputEmail'].errors?.['required'];
     return this.isEmailValid;
   }
-  
+
   login(form: NgForm): void {
-    
-    if(form.invalid) {
+
+    if (form.invalid) {
       return;
     }
-    
-    this.userService.login();
-    this.router.navigate(['home']);
+
+    const { email, password } = form.value
+
+    this.userService.login(email, password).subscribe(()=> {
+      this.router.navigate(['/themes'])
+    });
   }
 }
