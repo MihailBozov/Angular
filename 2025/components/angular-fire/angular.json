@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "components-app": {
+    "angular-fire": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -38,7 +38,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/components-app",
+            "outputPath": "dist/angular-fire",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -84,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "components-app:build:production"
+              "buildTarget": "angular-fire:build:production"
             },
             "development": {
-              "buildTarget": "components-app:build:development"
+              "buildTarget": "angular-fire:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -117,8 +117,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "46b21326-54f6-49d5-bbff-cf89984b5962"
   }
 }
