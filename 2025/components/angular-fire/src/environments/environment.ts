@@ -6,6 +6,6 @@ export const environment = {
     projectId: "first-angular-project-779a2",
     storageBucket: "first-angular-project-779a2.firebasestorage.app",
     messagingSenderId: "884137321670",
-    appId: "1:884137321670:web:678ae16ff15ee5ae30a3c7"
+    appId: "1:884137321670:web:678ae16ff15ee5ae30a3c7" 
   }
 }
